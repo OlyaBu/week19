@@ -1,0 +1,76 @@
+<!-- Помните наше практическое задание с опросником для владельцев котиков? Он нам снова пригодится! Напишите класс Cat со
+свойствами, соответствующими полям вашего опросника (например, кличка, корм и пр.), и по нажатию на кнопку "Ок" создайте
+экземпляр этого класса, заполнив его свойства ответами из опросника. В этом классе будут только свойства и конструктор,
+без методов. Выведите результат (заполненный объект класса Cat) в консоль при помощи console.log. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18_1</title>
+    <style>
+        div {
+            margin: 1%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 400;
+        }
+
+        input:required:valid {
+            border-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Котоопросник</h1>
+    <form>
+        <div>
+            <label for="name"> Кличка питомца</label>
+            <input type="text" id="name" value="name" name="name"></div>
+        <div>
+            <label for="owner">Имя владельца</label>
+            <input name="owner" type="text" id="owner" value="owner" placeholder="login" required>*</div>
+
+        <label for="type">Порода сладкого пирожочека</label>
+        <select>
+            <option name="type" value="type"> Перс</option>
+            <option name="type" value="type">не Перс</option>
+            <option name="type" value="type">Самый сладкий котик</option>
+        </select>
+        <div>
+   
+        <div>
+            Самец <input type="radio" name="sex" value="sex">
+            <br>Самка
+            <input type="radio" name="sex" value="sex">
+        </div>
+     <button>Сохранить</button>
+    </form>
+</body>
+<script>
+    const form = document.querySelector("form");
+    class Cat {
+        constructor(data) {
+            this.name = data.get("name");
+            this.owner = data.get("owner");
+            this.type = data.get("type");
+            this.sex = data.get("sex");
+        } 
+        // вот тут я перестаю понимать что тмы тут печатаем
+        print() {
+            console.log(this);
+        }
+    };
+// это обработчик событий, но что такое evt и откуда data и зачем это 
+form.addEventListener("submit", (evt) => {
+        evt.preventDefault();
+        let data = new FormData(form);
+    })
+// зачем эта переменная и что значит data в скобках, зачем она тут
+    let cat = new Cat(data);
+</script>
+
+</html>
