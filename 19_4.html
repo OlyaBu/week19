@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Validation {
+        static CheckEmail(collection) {
+            let isEmail = false;
+            for (let input of collection) {
+                if (input.value == '')
+                    isEmail = true;
+            }
+        }
+        static CheckDomain() {
+            let isDomain = false;
+            for (let input of collection) {
+                if (input.value == '')
+                isDomain = true;
+            }
+         }
+        static CheckDate () {
+            let isDate = false;
+            for (let input of collection) {
+                if (input.value == '')
+                isDate = true;
+            }   
+        }
+        static CheckPhone() {
+            let isPhone= false;
+            for (let input of collection) {
+                if (input.value == '')
+                isPhone = true;
+            }   
+        }
+    }
+
+</script>
+
+</html>

@@ -25,52 +25,57 @@
 </head>
 
 <body>
-    <h1>Котоопросник</h1>
     <form>
-        <div>
-            <label for="name"> Кличка питомца</label>
-            <input type="text" id="name" value="name" name="name"></div>
-        <div>
-            <label for="owner">Имя владельца</label>
-            <input name="owner" type="text" id="owner" value="owner" placeholder="login" required>*</div>
+        <h1>Котоопросник</h1>
 
-        <label for="type">Порода сладкого пирожочека</label>
-        <select>
-            <option name="type" value="type"> Перс</option>
-            <option name="type" value="type">не Перс</option>
-            <option name="type" value="type">Самый сладкий котик</option>
-        </select>
-        <div>
-   
-        <div>
-            Самец <input type="radio" name="sex" value="sex">
-            <br>Самка
-            <input type="radio" name="sex" value="sex">
-        </div>
-     <button>Сохранить</button>
+        <p>
+            <label for="name"> Кличка питомца
+                <input type="text" id="name" value="name" name="name">
+            </label>
+        </p>
+        <p>
+            <label for="owner">Имя владельца
+                <input name="owner" type="text" id="owner" value="owner" placeholder="login" required>*
+            </label>
+        </p>
+        <label for="type">Порода сладкого пирожочека
+            <select>
+                <option name="type" value="type"> Перс</option>
+                <option name="type" value="type">не Перс</option>
+                <option name="type" value="type">Самый сладкий котик</option>
+            </select>
+        </label>
+
+        Самец <input type="radio" name="sex" value="sex">
+        <br>Самка
+        <input type="radio" name="sex" value="sex">
+        <button>Сохранить</button>
     </form>
 </body>
 <script>
     const form = document.querySelector("form");
+    console.log("form")
+
     class Cat {
         constructor(data) {
             this.name = data.get("name");
             this.owner = data.get("owner");
             this.type = data.get("type");
             this.sex = data.get("sex");
-        } 
+        }
         // вот тут я перестаю понимать что тмы тут печатаем
         print() {
             console.log(this);
         }
     };
-// это обработчик событий, но что такое evt и откуда data и зачем это 
-form.addEventListener("submit", (evt) => {
+    // это обработчик событий, но что такое evt и откуда data и зачем это 
+    form.addEventListener("submit", (evt) => {
         evt.preventDefault();
         let data = new FormData(form);
-    })
-// зачем эта переменная и что значит data в скобках, зачем она тут
-    let cat = new Cat(data);
+        // зачем эта переменная и что значит data в скобках, зачем она тут
+        let cat = new Cat(data);
+        cat.print();
+    });
 </script>
 
 </html>
