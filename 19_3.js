@@ -1,65 +1,56 @@
 
+const answer = document.getElementById('out');
+const firstNumber=document.getElementById("num1");
+const secondNumber=document.getElementById("num2");
 
-class numbers {
-    constructor (num1, num2) {
+
+class Calculate {
+    constructor(num1, num2) {
       this.num1 = num1; 
       this.num2 = num2; 
     }
+static sum(thisNumbers){
+  return thisNumbers.num1 + thisNumbers.num2;
 }
-const num1 = getvalue('num1');
-const num2 = getvalue('num2');
+static minus(thisNumbers){
+  return thisNumbers.num1 - thisNumbers.num2;
+}
+static multiply(thisNumbers){
+  return thisNumbers.num1 * thisNumbers.num2;
+}
+static division(thisNumbers){
+  return thisNumbers.num1 / thisNumbers.num2;
+}
+}
 
-getPlus() {return this.num1 + this.num2};
-getMinus() {return this.num1 - this.num2};
-getMultiply() {return this.num1 * this.num2};
-getdivision() {return this.num1 / this.num2};
-console.log (numbers.getPlus());
+function Getminus(){
+  let newNumbers =new Calculate(firstNumber.value, secondNumber.value);
+  answer.innerHTML = Calculate.minus(newNumbers);
+}
+function GetDivision(){
+  let newNumbers =new Calculate(firstNumber.value, secondNumber.value);
+    answer.innerHTML = Calculate.division(newNumbers);
+    if (secondNumber == 0) {
+      alert('На ноль делить нельзя!');
+      answer.innerHTML = '';
+  }
+}
 
+function Getplus(){
+  let newNumbers =new Calculate(firstNumber.value, secondNumber.value);
+  answer.innerHTML = Calculate.sum(newNumbers);
+}
+function GetMultiple(){
+  let newNumbers =new Calculate(firstNumber.value, secondNumber.value);
+  answer.innerHTML = Calculate.multiply(newNumbers);
+}
 
-// function getvalue(id) {
-//     let num = document.getElementById(id).value;
-//     num = parseInt(num);
-//     return num;
-// }
-// const answer = document.getElementById('out');
-
-
-
-
-// function plus() {
-//     const num1 = getvalue('num1');
-//     const num2 = getvalue('num2');
-//      const result = num1 + num2;
-//     answer.innerHTML = result;
-// }
-
-// function minus() {
-//     const num1 = getvalue('num1');
-//     const num2 = getvalue('num2');
-//     result = num1 - num2;
-//     answer.innerHTML = result;
-// }
-
-// function multiply() {
-//     const num1 = getvalue('num1');
-//     const num2 = getvalue('num2');
-//     result = num1 * num2;
-//     answer.innerHTML = result;
-// }
-
-// function division() {
-//     const num1 = getvalue('num1');
-//     const num2 = getvalue('num2');
-//     result = num1 / num2;
-   
-//     if (num1 == '0') {
+// if (num1 == '0') {
 //         document.getElementById('error')
-//             .innerHTML += "не дели блин на нуль! <br>";
+//              .innerHTML += "не дели блин на нуль! <br>";
 //     }
 //     if (num2 == '0') {
-//         document.getElementById('error')
+//       document.getElementById('error')
 //             .innerHTML += "брось эту затею <br>";
             
 //     }
-//     answer.innerHTML = result;
-// }
